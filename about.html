@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बारेमा - घिमिरे परिवार</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #dd4b39;
+            --accent-color: #00a65a;
+            --light-color: #f8f9fc;
+            --dark-color: #2e2e2e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fb;
+        }
+        
+        /* हेडर स्टाइलिंग */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* मुख्य कंटेंट */
+        .main-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .page-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* हिस्ट्री सेक्शन */
+        .history-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .history-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .history-text {
+            padding-right: 1rem;
+        }
+        
+        .history-image {
+            background: linear-gradient(45deg, #4e73df, #dd4b39);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .history-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(0,0,0,0.1)"/></svg>');
+            background-size: 100% 100%;
+        }
+        
+        /* टाइमलाइन */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding-left: 2rem;
+        }
+        
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content {
+            background: #f9fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* स्टेट्स सेक्शन */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* टीम सेक्शन */
+        .team-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #f9fafc;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .member-contact {
+            margin-top: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-3px);
+            background: var(--secondary-color);
+        }
+        
+        /* कॉन्टैक्ट सेक्शन */
+        .contact-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            padding-right: 1rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f9fafc;
+            border-radius: 8px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            padding-left: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        /* फुटर */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1a1a1a 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        /* रिस्पॉन्सिवनेस */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .page-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .history-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .history-text {
+                padding-right: 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 0;
+            }
+            
+            .timeline-container {
+                padding-left: 1.5rem;
+            }
+            
+            .timeline-item:before {
+                left: -1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- हेडर सेक्शन -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> गृहपृष्ठ
+            </a>
+            
+            <div class="logo">
+                <i class="fas fa-info-circle"></i>
+                <div class="logo-text">
+                    <h1>बारेमा</h1>
+                </div>
+            </div>
+            
+            <div></div> <!-- खाली स्थान -->
+        </div>
+    </header>
+
+    <!-- मुख्य कंटेंट -->
+    <main class="main-container">
+        <div class="page-title">
+            <h2>घिमिरे परिवारको बारेमा</h2>
+            <p>हाम्रो परिवारको इतिहास, उद्देश्य र लक्ष्यहरू</p>
+        </div>
+        
+        <!-- इतिहास सेक्शन -->
+        <section class="history-section">
+            <h2>परिवारको इतिहास</h2>
+            <div class="history-content">
+                <div class="history-text">
+                    <p>घिमिरे परिवार नेपालको अर्घाखाँची/गुल्मी क्षेत्रमा मूल भएको ठूलो र प्रतिष्ठित परिवार हो। यो परिवारको इतिहास सयौं वर्ष पुरानो छ र यसका धेरै शाखाहरू छन्।</p>
+                    <p>परिवारको मूल पुरुष सोदु जैसी घिमिरे हुन् जसका पाँच छोराहरूले परिवारलाई विभिन्न शाखाहरूमा विस्तार गरेका छन्। यी शाखाहरूमा खौला, दुलिखर्के, भिरकुने, फुर्साभिरे, बैँशारूखे, र बाँसारूखे समावेश छन्।</p>
+                    <p>आज यो परिवार नेपालभरि र विदेशमा पनि फैलिएको छ र सैंकडौं सदस्यहरू छन्। परिवारका सदस्यहरू विभिन्न क्षेत्रमा सक्रिय छन् र समाजमा योगदान दिँदै आएका छन्।</p>
+                </div>
+                <div class="history-image">
+                    <i class="fas fa-history"></i>
+                </div>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-year">वि.सं. १९०० को सुरुवात</div>
+                    <div class="timeline-content">
+                        <p>सोदु जैसी घिमिरेको जन्म भएको मानिन्छ। उनले जमुना घिमिरेसंग विवाह गरे।</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">वि.सं. १९३०-१९५०</div>
+                    <div class="timeline-content">
+                        <p>सोदु र जमुनाका पाँच छोराहरूको जन्म भयो: हरिलाल, धनीश्वर, हरी नारायण, दिलाराम र वेदुराम।</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">वि.सं. १९६०-१९८०</div>
+                    <div class="timeline-content">
+                        <p>छोराहरूले आ-आफ्नै शाखाहरू स्थापना गरे: खौला, दुलिखर्के, भिरकुने, फुर्साभिरे, बैँशारूखे, बाँसारूखे।</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">वि.सं. १९९०-हालसम्म</div>
+                    <div class="timeline-content">
+                        <p>परिवारको विस्तार भयो, नेपालभरि र विदेशमा पनि सदस्यहरू बसोबास गर्न थाले।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- स्टेट्स सेक्शन -->
+        <section class="stats-section">
+            <h2>परिवारको तथ्याङ्क</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">६</div>
+                    <div class="stat-label">मुख्य शाखाहरू</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">७००+</div>
+                    <div class="stat-label">सदस्यहरू</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">५+</div>
+                    <div class="stat-label">पुस्ताहरू</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">१०+</div>
+                    <div class="stat-label">जिल्लाहरूमा</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- टीम सेक्शन -->
+        <section class="team-section">
+            <h2>वेबसाइट विकास टिम</h2>
+            <p>यो वेबसाइट निम्न व्यक्तिहरूको समर्पण र परिवारका विभिन्न सदस्यहरूको सहयोगबाट तयार भएको हो:</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="member-name">श्याम कुमार</h3>
+                    <div class="member-role">मुख्य विकासकर्ता</div>
+                    <p>वेब डिजाइन र विकासमा विशेषज्ञ</p>
+                    <div class="member-contact">
+                        <a href="#" class="contact-link"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="contact-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="contact-link"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="member-name">घिमिरे परिवार</h3>
+                    <div class="member-role">सामग्री योगदानकर्ता</div>
+                    <p>सम्पूर्ण परिवारका सदस्यहरू</p>
+                    <div class="member-contact">
+                        <a href="#" class="contact-link"><i class="fas fa-users"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 class="member-name">बुढापाकाहरू</h3>
+                    <div class="member-role">इतिहास संरक्षक</div>
+                    <p>परिवारको इतिहास र परम्परा जोगाउने</p>
+                    <div class="member-contact">
+                        <a href="#" class="contact-link"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- कॉन्टैक्ट सेक्शन -->
+        <section class="contact-section">
+            <h2>सम्पर्क गर्नुहोस्</h2>
+            <p>यो वेबसाइटको बारेमा कुनै प्रश्न, सुझाव वा जानकारी अपडेट गर्न चाहनुहुन्छ भने हामीलाई सम्पर्क गर्नुहोस्।</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>सम्पर्क जानकारी</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>इमेल</h4>
+                                <p>info@ghimirefamily.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>फोन</h4>
+                                <p>+९७७ ९८४१००००००</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>ठेगाना</h4>
+                                <p>अर्घाखाँची, गण्डकी प्रदेश, नेपाल</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>सन्देश पठाउनुहोस्</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label">नाम</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">इमेल</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">विषय</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">सन्देश</label>
+                            <textarea class="form-input form-textarea" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">सन्देश पठाउनुहोस्</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- फुटर -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>घिमिरे परिवार</h3>
+                <p>अर्घाखाँची/गुल्मी क्षेत्रमा मूल भएको ठूलो र प्रतिष्ठित परिवारको वंशावली</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>द्रुत लिंकहरू</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">गृहपृष्ठ</a></li>
+                    <li><a href="family-tree.html">वंशावली</a></li>
+                    <li><a href="members.html">सदस्यहरू</a></li>
+                    <li><a href="branches.html">शाखाहरू</a></li>
+                    <li><a href="about.html">बारेमा</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>सम्पर्क</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@ghimirefamily.com">info@ghimirefamily.com</a></li>
+                    <li><a href="tel:+9779841000000">+९७७ ९८४१००००००</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © copyright SKK Apps 2025. Project by Shyam Kumar
+        </div>
+    </footer>
+
+    <script>
+        // DOM लोड भएपछि
+        document.addEventListener('DOMContentLoaded', function() {
+            // कन्ट्याक्ट फर्म सब्मिसन
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // यहाँ वास्तविक फर्म सब्मिसन कोड हुनेछ
+                alert('धन्यवाद! तपाईंको सन्देश पठाइएको छ। हामी चाँडै नै सम्पर्क गर्नेछौं।');
+                contactForm.reset();
+            });
+            
+            // एनिमेटेड काउन्टर
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsSection = document.querySelector('.stats-section');
+            
+            function animateValue(element, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = value.toLocaleString();
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            
+            // इन्टरसेक्सन अब्जर्भर बनाउनुहोस्
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statNumbers.forEach(stat => {
+                            const target = parseInt(stat.textContent);
+                            animateValue(stat, 0, target, 2000);
+                        });
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+        });
+    </script>
+</body>
+</html>

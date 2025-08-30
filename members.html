@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सदस्यहरू - घिमिरे परिवार</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #dd4b39;
+            --accent-color: #00a65a;
+            --light-color: #f8f9fc;
+            --dark-color: #2e2e2e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fb;
+        }
+        
+        /* हेडर स्टाइलिंग */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* मुख्य कंटेंट */
+        .main-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .page-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* फिल्टर र सर्च सेक्शन */
+        .filters-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-button {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            opacity: 0.9;
+        }
+        
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .filter-select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            font-size: 0.9rem;
+        }
+        
+        /* मेंबर्स ग्रिड */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .member-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image {
+            height: 200px;
+            background: linear-gradient(45deg, #4e73df, #dd4b39);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+        }
+        
+        .member-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .member-relation {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .member-branch {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .member-details {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .member-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .view-profile {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .view-profile:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* पेजिनेशन */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+        
+        .pagination-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-button:hover:not(.active) {
+            background: #f0f4f9;
+        }
+        
+        /* फुटर */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1a1a1a 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        /* रिस्पॉन्सिवनेस */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .filter-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-container {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+            
+            .search-input {
+                border-radius: 12px 12px 0 0;
+            }
+            
+            .search-button {
+                border-radius: 0 0 12px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- हेडर सेक्शन -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> गृहपृष्ठ
+            </a>
+            
+            <div class="logo">
+                <i class="fas fa-users"></i>
+                <div class="logo-text">
+                    <h1>सदस्यहरू</h1>
+                </div>
+            </div>
+            
+            <div></div> <!-- खाली स्थान -->
+        </div>
+    </header>
+
+    <!-- मुख्य कंटेंट -->
+    <main class="main-container">
+        <div class="page-title">
+            <h2>घिमिरे परिवारका सदस्यहरू</h2>
+            <p>सम्पूर्ण परिवारका सदस्यहरूको विस्तृत सूची</p>
+        </div>
+        
+        <!-- फिल्टर र सर्च सेक्शन -->
+        <section class="filters-section">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="सदस्यको नाम लेख्नुहोस्..." id="searchInput">
+                <button class="search-button" id="searchButton">
+                    <i class="fas fa-search"></i> खोज्नुहोस्
+                </button>
+            </div>
+            
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label class="filter-label">शाखा छान्नुहोस्</label>
+                    <select class="filter-select" id="branchFilter">
+                        <option value="">सबै शाखाहरू</option>
+                        <option value="खौला">खौला</option>
+                        <option value="दुलिखर्के">दुलिखर्के</option>
+                        <option value="भिरकुने">भिरकुने</option>
+                        <option value="फुर्साभिरे">फुर्साभिरे</option>
+                        <option value="बैँशारूखे">बैँशारूखे</option>
+                        <option value="बाँसारूखे">बाँसारूखे</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">पुस्ता छान्नुहोस्</label>
+                    <select class="filter-select" id="generationFilter">
+                        <option value="">सबै पुस्ताहरू</option>
+                        <option value="1">पहिलो पुस्ता</option>
+                        <option value="2">दोस्रो पुस्ता</option>
+                        <option value="3">तेस्रो पुस्ता</option>
+                        <option value="4">चौथो पुस्ता</option>
+                        <option value="5">पाँचौं पुस्ता</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">क्रमबद्ध गर्नुहोस्</label>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="name">नाम अनुसार</option>
+                        <option value="branch">शाखा अनुसार</option>
+                        <option value="generation">पुस्ता अनुसार</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        
+        <!-- मेंबर्स ग्रिड -->
+        <section class="members-grid" id="membersGrid">
+            <!-- मेंबर कार्ड 1 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-user"></i>
+                    <div class="member-badge">कुलपुरुष</div>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">सोदु जैसी घिमिरे</h3>
+                    <div class="member-relation">मूल पुरुष</div>
+                    <span class="member-branch">मुख्य खलक</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 1</span>
+                        <span>लिंग: पुरुष</span>
+                    </div>
+                    <p class="member-details">सम्पूर्ण घिमिरे परिवारका मूल पुरुष। धेरै सन्तानहरूको बुबा।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 2 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-user"></i>
+                    <div class="member-badge">शाखा प्रमुख</div>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">हरी नारायण घिमिरे</h3>
+                    <div class="member-relation">छोरा (साईला)</div>
+                    <span class="member-branch">फुर्साभिरे</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 2</span>
+                        <span>लिंग: पुरुष</span>
+                    </div>
+                    <p class="member-details">सोदु घिमिरेका साईला छोरा। गंगा घिमिरेसंग विवाह। फुर्साभिरे शाखाका प्रमुख।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 3 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-user"></i>
+                    <div class="member-badge">शाखा प्रमुख</div>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">धनीश्वर घिमिरे</h3>
+                    <div class="member-relation">छोरा (माइला)</div>
+                    <span class="member-branch">भिरकुने</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 2</span>
+                        <span>लिंग: पुरुष</span>
+                    </div>
+                    <p class="member-details">सोदु घिमिरेका माइला छोरा। भिरकुने धनीश्वर घिमिरेको रूपमा परिचित। भिरकुने शाखाका प्रमुख।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 4 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">हरिलाल घिमिरे</h3>
+                    <div class="member-relation">छोरा (जेठो)</div>
+                    <span class="member-branch">बुढा घरे ओर्द सारा</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 2</span>
+                        <span>लिंग: पुरुष</span>
+                    </div>
+                    <p class="member-details">सोदु घिमिरेका जेठा छोरा। बुढा घरे ओर्द सारा शाखाका प्रमुख।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 5 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">दिलाराम घिमिरे</h3>
+                    <div class="member-relation">छोरा (काइँला)</div>
+                    <span class="member-branch">बैँशारूखे</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 2</span>
+                        <span>लिंग: पुरुष</span>
+                    </div>
+                    <p class="member-details">सोदु घिमिरेका काइँला छोरा। बैँशारूखे शाखाका प्रमुख।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 6 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">वेदुराम घिमिरे</h3>
+                    <div class="member-relation">छोरा (कान्छो)</div>
+                    <span class="member-branch">बाँसारूखे</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 2</span>
+                        <span>लिंग: पुरुष</span>
+                    </div>
+                    <p class="member-details">सोदु घिमिरेका कान्छा छोरा। बाँसारूखे शाखाका प्रमुख। देराधुम बसोबास।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 7 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-female"></i>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">जमुना घिमिरे</h3>
+                    <div class="member-relation">जीवनसाथी</div>
+                    <span class="member-branch">मुख्य खलक</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 1</span>
+                        <span>लिंग: महिला</span>
+                    </div>
+                    <p class="member-details">सोदु घिमिरेकी श्रीमती। पाँच छोराहरूकी आमा।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- मेंबर कार्ड 8 -->
+            <div class="member-card">
+                <div class="member-image">
+                    <i class="fas fa-female"></i>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">गंगा घिमिरे</h3>
+                    <div class="member-relation">जीवनसाथी</div>
+                    <span class="member-branch">फुर्साभिरे</span>
+                    <div class="member-meta">
+                        <span>पुस्ता: 2</span>
+                        <span>लिंग: महिला</span>
+                    </div>
+                    <p class="member-details">हरी नारायण घिमिरेकी श्रीमती। फुर्साभिरे शाखाकी माता।</p>
+                    <a href="family-tree.html" class="view-profile">वंशावली हेर्नुहोस् <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- पेजिनेशन -->
+        <div class="pagination">
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <button class="pagination-button">4</button>
+            <button class="pagination-button">5</button>
+        </div>
+    </main>
+
+    <!-- फुटर -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>घिमिरे परिवार</h3>
+                <p>अर्घाखाँची/गुल्मी क्षेत्रमा मूल भएको ठूलो र प्रतिष्ठित परिवारको वंशावली</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>द्रुत लिंकहरू</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">गृहपृष्ठ</a></li>
+                    <li><a href="family-tree.html">वंशावली</a></li>
+                    <li><a href="members.html">सदस्यहरू</a></li>
+                    <li><a href="branches.html">शाखाहरू</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>सम्पर्क</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@ghimirefamily.com">info@ghimirefamily.com</a></li>
+                    <li><a href="tel:+9779841000000">+९७७ ९८४१००००००</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © copyright SKK Apps 2025. Project by Shyam Kumar
+        </div>
+    </footer>
+
+    <script>
+        // DOM लोड भएपछि
+        document.addEventListener('DOMContentLoaded', function() {
+            // खोज कार्यक्षमता
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const branchFilter = document.getElementById('branchFilter');
+            const generationFilter = document.getElementById('generationFilter');
+            const sortFilter = document.getElementById('sortFilter');
+            const membersGrid = document.getElementById('membersGrid');
+            const memberCards = membersGrid.querySelectorAll('.member-card');
+            
+            // खोज र फिल्टर लागू गर्ने
+            function applyFilters() {
+                const searchText = searchInput.value.toLowerCase();
+                const branchValue = branchFilter.value;
+                const generationValue = generationFilter.value;
+                const sortValue = sortFilter.value;
+                
+                let visibleCards = 0;
+                
+                // फिल्टर लागू गर्नुहोस्
+                memberCards.forEach(card => {
+                    const name = card.querySelector('.member-name').textContent.toLowerCase();
+                    const branch = card.querySelector('.member-branch').textContent;
+                    const generation = card.querySelector('.member-meta span:first-child').textContent;
+                    const generationNumber = generation.replace('पुस्ता: ', '');
+                    
+                    const matchesSearch = name.includes(searchText);
+                    const matchesBranch = !branchValue || branch === branchValue;
+                    const matchesGeneration = !generationValue || generationNumber === generationValue;
+                    
+                    if (matchesSearch && matchesBranch && matchesGeneration) {
+                        card.style.display = 'block';
+                        visibleCards++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // क्रमबद्ध गर्नुहोस्
+                sortMembers(sortValue);
+                
+                // कुनै परिणाम नभएको खण्डमा
+                if (visibleCards === 0) {
+                    membersGrid.innerHTML = `
+                        <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                            <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                            <h3 style="color: #666;">कुनै परिणाम फेला परेन</h3>
+                            <p>कृपया फिल्टर परिवर्तन गर्नुहोस् वा फेरि खोज्नुहोस्</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            // क्रमबद्ध गर्ने
+            function sortMembers(sortBy) {
+                const cardsArray = Array.from(memberCards);
+                
+                cardsArray.sort((a, b) => {
+                    if (sortBy === 'name') {
+                        const nameA = a.querySelector('.member-name').textContent.toLowerCase();
+                        const nameB = b.querySelector('.member-name').textContent.toLowerCase();
+                        return nameA.localeCompare(nameB);
+                    } else if (sortBy === 'branch') {
+                        const branchA = a.querySelector('.member-branch').textContent;
+                        const branchB = b.querySelector('.member-branch').textContent;
+                        return branchA.localeCompare(branchB);
+                    } else if (sortBy === 'generation') {
+                        const genA = a.querySelector('.member-meta span:first-child').textContent;
+                        const genB = b.querySelector('.member-meta span:first-child').textContent;
+                        return parseInt(genA) - parseInt(genB);
+                    }
+                    return 0;
+                });
+                
+                // क्रम अनुसार डोममा पुन: व्यवस्थित गर्नुहोस्
+                cardsArray.forEach(card => {
+                    membersGrid.appendChild(card);
+                });
+            }
+            
+            // इभेन्ट लिस्नर्स
+            searchInput.addEventListener('input', applyFilters);
+            searchButton.addEventListener('click', applyFilters);
+            branchFilter.addEventListener('change', applyFilters);
+            generationFilter.addEventListener('change', applyFilters);
+            sortFilter.addEventListener('change', applyFilters);
+            
+            // पेजिनेशन
+            const paginationButtons = document.querySelectorAll('.pagination-button');
+            paginationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paginationButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // यहाँ वास्तविक पेजिनेशन कोड हुनेछ
+                });
+            });
+        });
+    </script>
+</body>
+</html>
