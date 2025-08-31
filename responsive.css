@@ -1,0 +1,946 @@
+/* घिमिरे परिवार वेबसाइटको रिस्पोन्सिभ स्टाइल्स */
+
+/* एक्स्ट्रा लार्ज डिभाइसहरू (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.4rem;
+    }
+    
+    /* ठूलो स्क्रिनहरूमा विशेष ग्रिड लेआउट */
+    .grid-xl-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* लार्ज डिभाइसहरू (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    nav ul {
+        gap: 1.5rem;
+    }
+    
+    nav a {
+        font-size: 1rem;
+    }
+    
+    /* ब्रांच कार्डहरूको साइज समायोजन */
+    .branch-overview-card {
+        padding: 1.2rem;
+    }
+    
+    .branch-name {
+        font-size: 1.3rem;
+    }
+}
+
+/* मध्यम डिभाइसहरू (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .mobile-menu-btn {
+        order: 2;
+        display: block;
+    }
+    
+    nav {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+        display: none;
+    }
+    
+    nav.active {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    nav li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    nav a {
+        display: block;
+        padding: 1rem 0;
+    }
+    
+    /* हीरो सेक्शन समायोजन */
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    /* ग्रिड लेआउट समायोजन */
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* ब्रांच ओवरव्यू समायोजन */
+    .branches-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* मेंबर्स ग्रिड समायोजन */
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* टाइमलाइन समायोजन */
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-item:before {
+        left: -1.9rem;
+    }
+    
+    /* फुटर समायोजन */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* सानो डिभाइसहरू (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 540px;
+        padding: 0 0.5rem;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.4rem;
+    }
+    
+    .logo i {
+        font-size: 2rem;
+    }
+    
+    /* हीरो सेक्शन समायोजन */
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* सेक्शन हेडर समायोजन */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* स्ट्याट्स ग्रिड समायोजन */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    /* ब्रांच ओवरव्यू समायोजन */
+    .branches-overview {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .branch-overview-card {
+        padding: 1rem;
+    }
+    
+    .branch-icon {
+        font-size: 2rem;
+    }
+    
+    .branch-name {
+        font-size: 1.2rem;
+    }
+    
+    /* मेंबर्स ग्रिड समायोजन */
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .member-card {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .member-image {
+        height: 150px;
+        font-size: 3rem;
+    }
+    
+    .member-info {
+        padding: 1rem;
+    }
+    
+    .member-name {
+        font-size: 1.1rem;
+    }
+    
+    /* ब्रांच डिटेल समायोजन */
+    .branch-detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .branch-detail-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+    
+    .branch-detail-title {
+        font-size: 1.5rem;
+    }
+    
+    .branch-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .info-card {
+        padding: 1rem;
+    }
+    
+    /* टाइमलाइन समायोजन */
+    .timeline-container {
+        padding-left: 1rem;
+    }
+    
+    .timeline-item:before {
+        left: -1.4rem;
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* फुटर समायोजन */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* फर्म समायोजन */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 0;
+    }
+    
+    .form-input {
+        padding: 0.8rem;
+    }
+}
+
+/* एक्स्ट्रा सानो डिभाइसहरू (575px भन्दा सानो) */
+@media (max-width: 575px) {
+    .container {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+    
+    .header-container {
+        padding: 0.5rem 0;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+    
+    .logo-text span {
+        font-size: 0.7rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    /* हीरो सेक्शन समायोजन */
+    .hero {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* सेक्शन हेडर समायोजन */
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-header:after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    /* स्ट्याट्स ग्रिड समायोजन */
+    .stats-section {
+        padding: 2rem 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .stat-item {
+        padding: 0.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    /* कार्ड समायोजन */
+    .card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* ब्रांच ओवरव्यू समायोजन */
+    .branches-overview {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .branch-overview-card {
+        padding: 0.8rem;
+    }
+    
+    .branch-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .branch-name {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .branch-stats {
+        gap: 1rem;
+        margin: 0.5rem 0;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .view-branch-button {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* मेंबर्स ग्रिड समायोजन */
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .member-image {
+        height: 120px;
+        font-size: 2.5rem;
+    }
+    
+    .member-info {
+        padding: 0.8rem;
+    }
+    
+    .member-name {
+        font-size: 1rem;
+    }
+    
+    .member-relation {
+        font-size: 0.8rem;
+    }
+    
+    .member-branch {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .member-meta {
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 0.7rem;
+    }
+    
+    .view-profile {
+        font-size: 0.8rem;
+    }
+    
+    /* ब्रांच डिटेल समायोजन */
+    .branch-detail-section {
+        padding: 1rem;
+    }
+    
+    .branch-detail-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .branch-detail-icon {
+        font-size: 2rem;
+        margin-right: 0.8rem;
+    }
+    
+    .branch-detail-title {
+        font-size: 1.3rem;
+    }
+    
+    .branch-detail-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .branch-info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-card {
+        padding: 0.8rem;
+    }
+    
+    .info-card-title {
+        font-size: 1rem;
+    }
+    
+    /* प्रमिनेन्ट मेंबर्स समायोजन */
+    .prominent-members {
+        margin-top: 1rem;
+    }
+    
+    .members-list {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .member-item {
+        padding: 0.8rem;
+    }
+    
+    .member-icon {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+    }
+    
+    .member-name {
+        font-size: 0.9rem;
+    }
+    
+    .member-relation {
+        font-size: 0.7rem;
+    }
+    
+    /* टाइमलाइन समायोजन */
+    .timeline-section {
+        margin-top: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 0.8rem;
+    }
+    
+    .timeline:before {
+        width: 3px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+    }
+    
+    .timeline-item:before {
+        left: -1.1rem;
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+    }
+    
+    .timeline-year {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-content {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* फिल्टर सेक्शन समायोजन */
+    .filters-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .search-input {
+        border-radius: 8px 8px 0 0;
+        padding: 0.8rem;
+    }
+    
+    .search-button {
+        border-radius: 0 0 8px 8px;
+        padding: 0.8rem;
+    }
+    
+    .filter-controls {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .filter-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .filter-select {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+    
+    /* पेजिनेशन समायोजन */
+    .pagination {
+        margin-top: 1rem;
+        gap: 0.3rem;
+    }
+    
+    .pagination-button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    /* फुटर समायोजन */
+    footer {
+        padding: 2rem 0 1rem;
+        margin-top: 2rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-links li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+    
+    .copyright {
+        padding-top: 1rem;
+        margin-top: 1rem;
+        font-size: 0.6rem;
+    }
+    
+    /* कन्ट्याक्ट सेक्शन समायोजन */
+    .contact-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-methods {
+        gap: 0.8rem;
+    }
+    
+    .contact-method {
+        padding: 0.8rem;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .form-input {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .submit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* टिम सेक्शन समायोजन */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .team-member {
+        padding: 1rem;
+    }
+    
+    .member-image {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .member-name {
+        font-size: 1rem;
+    }
+    
+    .member-role {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* स्क्रोल टप बटन समायोजन */
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    /* नोटिफिकेसन समायोजन */
+    .notification {
+        max-width: 90%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .notification-close {
+        font-size: 0.9rem;
+    }
+}
+
+/* ल्याण्डस्केप मोडमा फोनहरूको लागि विशेष स्टाइल्स */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 1rem 0.5rem;
+        min-height: auto;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    header {
+        position: relative;
+    }
+    
+    .section {
+        padding: 1.5rem 0;
+    }
+}
+
+/* हाइ डेफिनिसन (रेटिना) डिस्प्लेहरूको लागि */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo i {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* रेटिना डिस्प्लेमा बटनहरू र कार्डहरूको लागि बेसिक स्टाइलिंग */
+    .btn,
+    .card,
+    .member-card,
+    .branch-overview-card {
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* डार्क मोड समर्थन */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-color: #2d3748;
+        --dark-color: #f7fafc;
+    }
+    
+    body {
+        background-color: #1a202c;
+        color: #e2e8f0;
+    }
+    
+    .card {
+        background-color: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .form-input {
+        background-color: #2d3748;
+        color: #e2e8f0;
+        border-color: #4a5568;
+    }
+    
+    .member-image {
+        background: linear-gradient(45deg, #2d3748, #4a5568);
+    }
+}
+
+/* प्रिन्ट स्टाइल्स */
+@media print {
+    header, 
+    footer, 
+    nav, 
+    .btn,
+    .mobile-menu-btn,
+    .scroll-to-top,
+    .notification {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+    
+    .section {
+        padding: 1rem 0;
+        page-break-inside: avoid;
+    }
+    
+    .hero {
+        background: none;
+        color: black;
+        padding: 1rem 0;
+    }
+    
+    .hero h2 {
+        color: black;
+        text-shadow: none;
+    }
+    
+    a {
+        color: #0000ee;
+        text-decoration: underline;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+    }
+    
+    .stats-section {
+        background: none;
+        color: black;
+    }
+    
+    .stat-item {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+}
+
+/* टच डिभाइसहरूको लागि विशेष स्टाइल्स */
+@media (hover: none) and (pointer: coarse) {
+    /* टच डिभाइसहरूमा हभर इफेक्ट हटाउनुहोस् */
+    .card:hover,
+    .member-card:hover,
+    .branch-overview-card:hover,
+    .btn:hover {
+        transform: none;
+    }
+    
+    /* टच डिभाइसहरूमा स्क्रोलिङ सुधार */
+    .tree-container {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* टच डिभाइसहरूमा बटनहरू ठूलो बनाउनुहोस् */
+    .btn,
+    .pagination-button,
+    .view-branch-button,
+    .view-profile {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* टच डिभाइसहरूमा इन्पुट फिल्डहरू ठूलो बनाउनुहोस् */
+    .form-input,
+    .filter-select,
+    .search-input {
+        min-height: 44px;
+        font-size: 16px; /* iOS मा जुमिङ रोक्न */
+    }
+}
+
+/* उच्च कन्ट्रास्ट मोड समर्थन */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --secondary-color: #ff0000;
+        --accent-color: #008000;
+    }
+    
+    .card {
+        border: 2px solid black;
+    }
+    
+    .btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* कम मोशन प्रिफरेन्स */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .animate-fadeIn,
+    .animate-slideInLeft,
+    .animate-slideInRight {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* जाभास्क्रिप्ट अक्षम भएको अवस्थाको लागि */
+.no-js {
+    /* जाभास्क्रिप्ट अक्षम भएमा देखाउने स्टाइल्स */
+}
+
+.no-js .mobile-menu-btn {
+    display: none;
+}
+
+.no-js nav {
+    display: block;
+}
