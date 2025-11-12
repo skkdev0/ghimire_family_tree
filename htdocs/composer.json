@@ -1,0 +1,7 @@
+{
+    "require": {
+        "paypal/rest-api-sdk-php": "*",
+        "stripe/stripe-php": "^7.52",
+        "cocur/slugify": "^4.3"
+    }
+}
