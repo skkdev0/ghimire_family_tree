@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>घिमिरे परिवार - संक्षिप्त इतिहास</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-red: #b71c1c;
+            --light-red: #ffcdd2;
+            --text-dark: #333;
+            --text-light: #fff;
+            --background-light: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 15px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content */
+        .content-section {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: var(--primary-red);
+            border-bottom: 4px solid var(--light-red);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--dark-red);
+        }
+        
+        /* Timeline */
+        .timeline-container {
+            margin: 30px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-year {
+            background: var(--primary-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 20px;
+            height: fit-content;
+        }
+        
+        .timeline-content {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-red);
+            flex: 1;
+        }
+        
+        /* History Content Styling */
+        .history-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .history-content b {
+            color: var(--dark-red);
+            display: block;
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 15px;
+        }
+        
+        .history-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, #fff5f5, #ffeaea);
+            border-left: 6px solid var(--primary-red);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .key-points {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+        
+        .key-points li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .key-points li i {
+            color: var(--primary-red);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* Map/Origin Section */
+        .origin-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .origin-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .origin-map {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px dashed var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .map-placeholder {
+            text-align: center;
+            color: var(--dark-red);
+        }
+        
+        .map-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-red), #8b0000);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+        
+        .footer-text {
+            max-width: 800px;
+            margin: 0 auto 15px;
+            opacity: 0.95;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 25px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-year {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: fit-content;
+            }
+            
+            .origin-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-history"></i>
+            </div>
+            <h1>घिमिरे परिवार - संक्षिप्त इतिहास</h1>
+            <p class="tagline">हाम्रो वंशावली, हाम्रो गौरव, हाम्रो पहिचान</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="content-section fade-in">
+            <h2 class="section-title">घिमिरे वंशको ऐतिहासिक यात्रा</h2>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-year">वि.सं. १८०५</div>
+                    <div class="timeline-content">
+                        <h3>भारतबाट नेपाल प्रवास</h3>
+                        <p>हिन्दु-मुस्लिम दंगा बढेपछि हाम्रा पूर्वजहरूले आफ्नो धर्म र जीवन बचाउन भारत छोडेर नेपाल प्रवेश गरे।</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">वि.सं. १८०६</div>
+                    <div class="timeline-content">
+                        <h3>गुल्मीको घमिरमा बसोबास</h3>
+                        <p>हाम्रा पूर्वजहरू गुल्मी जिल्लाको घमिर गाउँमा स्थायी रूपमा बसोबास गर्न पुगे।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history-content">
+                <b>हाम्रो पुर्खाको घिमिरे थर कसरी जोडिन पुग्यो</b>
+                <p>हाम्रो पुर्खाको बसाइ भारतको बिन्धवासिनी ठाउँमा रहेको थियो। स्रोत अनुसार उज्यन शहरका राजा विक्रम आदित्यका पुरोहित गुणपाल व्यास विक्रम सम्वत 1805 मा हिन्दु र मुस्लिमको लडाइ हुँदा, आफ्नो ज्यान बचाउनको लागि उज्जयन शहर देखि कुमाउ, गडवाल, पश्चिम नेपाल खलङ्गा हुँदै जुम्लाको सिंजा भन्ने देश बाट डुल्दै घुम्दै नेपालको मध्य पहाड सम्म आइ पुग्नु भएको थियो। गंगाको मैदान देखि पहाड तिर सर्दै आाफ्नो बौध्दिक ग्यान र परमपरा झल्काउदै।</p>
+                
+                <p>निकै लामो यात्रा खस ब्राह्मणको ठुलो बसाइ सराइ तर एउटा सानो महत्तवपुर्ण हिस्सा विक्रम सम्वत 1806 मा इस्मा राज्य गुल्मि जिल्लाको घमिर भन्ने गाउँमा बसोवास गर्नु भयो। हाम्रो पुर्वजहरु इस्मा राज्यको पुराना ब्राह्मण भयको हुनाले इस्माली राजाका मुल पुरोहित हुने अवसर पाउनु भयो र इस्माको मौजामा राजावृता पाएर स्थायी रुपमा बसोवास गर्नु भयो।</p>
+                
+                <div class="highlight-box">
+                    <p><strong>थरको उत्पत्ति:</strong> घमिर भन्ने ठाउँमा बस्नु भएको हुँदा घमिरे/घिमिरेको नाम बाट सम्बोधन गरेको हुनाले पछिको पुस्ताले आफ्नो नामको पछाडी घिमिरे/घमिरे राखेको हुनाले घिमिरे थर हुन गएको मान्यता छ।</p>
+                </div>
+                
+                <p>हाम्रो घमिरमा घिमिरेको प्रथम पुर्खा विक्रम आदित्य का पुरोहित गुणपाल ब्यास का तिन भाइ छोरा मध्य एक भाइलाइ गोर्खाका राजाले लग्नु भएको र अर्को भाइ लाई लम्जुङ्गका राजाले लग्नु भएको र हाम्रो पुर्खा श्रिकृष्ण अग्निहोत्री ब्राह्मण गुल्मिमै बस्नु भएको। उँहा बद्रिकाश्रम मा धेरै वर्ष अध्ययन गर्नु भएको प्रकाण विद्वान र सिद्वान्त मन्त्रका ज्ञाता समेत हुनु भएकाले तत्कालिन इस्मा राज्यको राजगुरु भइ उच्च पद र प्रतिष्ठा प्राप्त गर्नु भएको थियो। पछि उहाँका सन्तानले पनि इस्मा राज्य दरबारमा राजगुरुको पदवीमा प्रतिष्ठा पाउनु भएको थियो।</p>
+                
+                <b>गुल्मि र घमिरको उत्पत्ति</b>
+                <p>गुल्मिको नाम संस्कृत शब्द 'गुल्म' बाट आएको हो जसको अर्थ सैनिक पल्टन हुन्छ, लिच्छवि काल र मध्य कालमा सैनिक छाउनि पनि थियो, त्यसैले गुल्मि नाम रहेको मानिन्छ।</p>
+                
+                <div class="origin-container">
+                    <div class="origin-info">
+                        <p>गुल्मिको घमिर भन्ने ठाउँलाइ पहिले सिस्ने डाँडा भन्ने गरिन्थ्यो र एउटा घरको भिट्टामा ठुलै धमिराको गोलो लागेको हुनाले, धमिरा-धमिर-धमिर भन्दा भन्दै घमिर नाम हुन गएको थियो। घमिर नाम बाटै प्रचलित भएर घमिरे, घिमिरे थर जोडिन पुग्यो।</p>
+                        
+                        <p>स्रोत अनुसार कास्कि को कास्कि कोट र गुल्मिको घमिर भन्ने ठाउँलाइ घिमिरेहरुको पुरानो थलो मानिन्छ।</p>
+                    </div>
+                    
+                    <div class="origin-map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>गुल्मी जिल्ला, नेपाल</h3>
+                            <p>घिमिरे थरको उत्पत्ति स्थल</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <b>गोत्र र प्रवर</b>
+                <p>हरेक वंशको चिनारीमा गोत्र र प्रवर को ठुलो भुमिका हुन्छ घिमिरेको गोत्र काश्यप हो, यो गोत्र ब्राह्मदेव का मानस पुत्र मरिचि का सन्तान रिसी कश्याप बाट चलेको मानिन्छ। सप्त रिसी अर्थात सात रिसी मध्य कश्याप रिसी महान ज्ञानि बुद्दिजिवी भएको हुनाले कश्याप रिसीलाई सृष्टि कर्ता भनिन्छ।</p>
+                
+                <ul class="key-points">
+                    <li><i class="fas fa-star"></i> <strong>गोत्र:</strong> काश्यप</li>
+                    <li><i class="fas fa-star"></i> <strong>प्रवर:</strong> कश्याप, अवतशार, नैधुर्व (त्रि आर्षिय प्रवर)</li>
+                    <li><i class="fas fa-star"></i> <strong>सप्त ऋषि:</strong> कश्यप, अत्रि, भारद्वाज, विश्र्वामित्र, गौतम, जमदग्नि, वशिष्ठ</li>
+                </ul>
+                
+                <p>प्रवर को महत्व यज्ञ गर्दा वा शन्ध्या-वन्धन जस्ता नित्य क्रममा आफ्नो प्रवर उच्चाहरण गर्ने चलन छ। यस्ले आफ्नो वंश परमपरा र शुद्धधता लाई सम्झाउछ, र अर्को महत्वपुर्ण कुरा एउटै गोत्र र प्रवरमा बिहेवारी चल्दैन। एउटै गोत्र र प्रवर भित्र बिहे गर्नु हुदैन, यस्ले वंश भित्र आनुवान्सिक विविधता पनि कायम राख्छ।</p>
+                
+                <b>कुल देवता</b>
+                <p>स्रोत अनुसार घिमिरेको कुल देवता मस्ट हुन, मस्ट देवता खास गरी पश्चिमी पहाडी खस समुदायमा निकै मानिन्छन। ब्राह भाइ ब्रहा मस्ट र नव दुर्गा भगिनिका रुपमा पुजा हुन्छ।</p>
+                
+                <div class="highlight-box">
+                    <p><strong>मस्ट देवताको कथा:</strong> मस्ट भनेका खास गरी भान्जा हुन। कुल देवता हुन, ब्राह भाइ मामाहरुले खिर पकाएका, खिर खाने क्रममा भान्जालाइ गोठमा रहेको गाँइ भोको रहेको गोठमा गइ उक्त गाँइलाइ घाँस हालिदिनु भन्ने आदेश भए पछि भान्जा श्रि गोठमा पुगि गाँइलाइ घाँस हालिसके पछि फँर्कदा मामा हरुले खिर खाएर सकिसकेका, भान्जा क्रोध आवेगमा आइ उक्त गोठमा गइ झुन्दिएर निधन भएको यथार्त प्रमाण रहेको छ। त्यहि यथार्त अनुसार कुनै पुजामा मस्ट ब्राह लाई सुरुमा खिर चदाउने र गोठमा धार धुप दिने चलन रहेको छ।</p>
+                </div>
+                
+                <p>पश्चिम तिर मस्ट को कुल पुजा विशेष विधि अनुसार प्राय दशै र मांघे संक्रान्तिमा गर्ने चलन छ, पुर्व तिर बैसाख पुर्निमा र मंसिर पुर्निमा गर्ने चलन छ र त्यसै गरि मध्य भेग मध्य पहाडमा साउने औंसी र मंसिर पुर्निमा मा मस्ट को कुल पुजा पुर्खाले गर्दै आएको चलनचल्ति र विधि अनुसार गरिएको छ।</p>
+                
+                <p>मस्ट को कुल पुजा चामल टिका धुप दिप बालेर र कतिपय अवस्थामा पशु बलि सहित पनि पुजा हुन्छ, दोलखा र कर्णाली तिर झाक्रिले मस्ट देवतालाई शरिरमा उतारेर पुजा गर्ने परमपरा पाइन्छ। शनार्तन धर्मको समावेशी चरित्रको राम्रो उदाहरणीय वैद्धिक परमपरा र स्थानिय लोक विश्वास जस्तै नाग पुजा भुमि पुजा पनि मिसिएको छ।</p>
+                
+                <b>सामाजिक वर्गीकरण र रहस्य</b>
+                <p>घिमिरेहरुलाई पुर्विया उप समुह अनुसार उपाध्याय बाहुन अन्तरगत मानिन्छ। बसाइ सराइको आधारमा कर्णाली नदिलाई आधार मानेर भौगोलिक पहिचानमा दुई ठाँउमा विभाजन गरिएको छ। पुर्व तिर बसोबास गर्नेलाइ पुर्विया र पश्चिम तिर बसोबास गर्नेलाइ कुमाई (उमाइ) भन्ने चलन चलेको हो। सामाजिक तहमा यसमा को ठुलो को सानो भन्ने चै होइन।</p>
+                
+                <p>पहिलेको समयमा समस्त घिमिरेहरु उपाध्याय बाहुन हुनुहुन्थ्यो, उपाध्यायको अर्थ भनेको वेद पुराण वेदाङ्ग पढाउने जान्ने अर्थात विद्धवान पुरोहित भन्ने बुझिन्छ। अहिलेको समयमा कतिपय घिमिरेहरु उपाध्याय बाहुन देखि खसेर जैसी पनि हुनुहुन्छ, त्यति बेला बेइता र लेइता भन्ने चलन थियो।</p>
+            </div>
+        </section>
+        
+        <section class="content-section fade-in">
+            <h2 class="section-title">घिमिरे वंशको मुख्य पहिचान</h2>
+            
+            <ul class="key-points">
+                <li><i class="fas fa-landmark"></i> <strong>मूल स्थान:</strong> गुल्मी जिल्ला, घमिर गाउँ (नेपाल)</li>
+                <li><i class="fas fa-users"></i> <strong>वंश परम्परा:</strong> ब्राह्मण (उपाध्याय), राजपुरोहितको भूमिका</li>
+                <li><i class="fas fa-book"></i> <strong>गोत्र:</strong> काश्यप गोत्र</li>
+                <li><i class="fas fa-temple"></i> <strong>कुल देवता:</strong> मस्ट देवता</li>
+                <li><i class="fas fa-map-pin"></i> <strong>ऐतिहासिक मूल:</strong> उज्जयन, भारत (विक्रम आदित्यका पुरोहित गुणपाल व्यास)</li>
+                <li><i class="fas fa-calendar-alt"></i> <strong>नेपाल प्रवेश:</strong> विक्रम संवत १८०५</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p class="footer-text">घिमिरे परिवारको गौरवशाली इतिहास र परम्परा</p>
+            <p class="footer-text">यो जानकारी ऐतिहासिक स्रोत र परम्परागत ज्ञानमा आधारित छ</p>
+                        <p class="footer-text" style="margin-top: 25px; font-size: 0.9rem; opacity: 0.8;">© २०२६ घिमीरे परिवार - सबै अधिकार सुरक्षित | गैर-नाफामुखी सामाजिक परियोजना</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Add animation to sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
