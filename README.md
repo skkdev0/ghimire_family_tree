@@ -15,7 +15,8 @@
 
 ## प्रयोग गर्ने तरिका
 
-- सर्ब प्रथम apk download![Download].(https://github.com/skkdev0/ghimire_family_tree/raw/refs/heads/main/application/GhimireFamily.apk) गर्नुहोस्
+- सर्ब प्रथम apk download गर्नुहोस्
+  -https://github.com/skkdev0/ghimire_family_tree/raw/refs/heads/main/application/GhimireFamily.apk
 - आफ्नो android device मा install गर्नुहोस्
 - install भैसकेपछि प्रयोग गर्न सकिन्छ
   
