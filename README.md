@@ -1,6 +1,6 @@
 # घिमिरे परिवार वंशावली वेबसाइट
 
-![घिमिरे परिवार लोगो](https://via.placeholder.com/150x150/4e73df/ffffff?text=घिमिरे)
+![घिमिरे परिवार लोगो](https://raw.githubusercontent.com/skkdev0/ghimire_family_tree/refs/heads/main/app_icon.png)
 
 यो घिमिरे परिवारको विस्तृत वंशावली वेबसाइट हो जसले परिवारका सबै सदस्यहरू, शाखाहरू र इतिहासलाई एकै ठाउँमा प्रदर्शन गर्दछ।
 
