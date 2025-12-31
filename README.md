@@ -1,8 +1,8 @@
-# घिमिरे परिवार वंशावली वेबसाइट
+# घिमिरे परिवार वंशावली Application
 
 ![घिमिरे परिवार लोगो](https://raw.githubusercontent.com/skkdev0/ghimire_family_tree/refs/heads/main/app_icon.png)
 
-यो घिमिरे परिवारको विस्तृत वंशावली वेबसाइट हो जसले परिवारका सबै सदस्यहरू, शाखाहरू र इतिहासलाई एकै ठाउँमा प्रदर्शन गर्दछ।
+यो घिमिरे परिवारको विस्तृत वंशावली Application हो जसले परिवारका सबै सदस्यहरू, शाखाहरू र इतिहासलाई एकै ठाउँमा प्रदर्शन गर्दछ।
 
 ## विशेषताहरू
 
@@ -15,7 +15,7 @@
 
 ## प्रयोग गर्ने तरिका
 
-- सर्ब प्रथम apk download गर्नुहोस्
+- सर्ब प्रथम apk download![Download].(https://github.com/skkdev0/ghimire_family_tree/raw/refs/heads/main/application/GhimireFamily.apk) गर्नुहोस्
 - आफ्नो android device मा install गर्नुहोस्
 - install भैसकेपछि प्रयोग गर्न सकिन्छ
   
