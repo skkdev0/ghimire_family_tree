@@ -1,0 +1,42 @@
+location /home {
+  rewrite ^/home/?$ /index.php?;
+}
+
+location /plans {
+  rewrite ^/plans/?$ /plans.php?;
+}
+
+location /p {
+  rewrite ^/p/([A-Za-z0-9-]+)/?$ /page.php?t=$1;
+}
+
+location /tree {
+  rewrite ^/tree/([A-Za-z0-9-]+)/([0-9-]+)/?$ /tree.php?id=$2&t=$1?;
+}
+
+location /users {
+  rewrite ^/users/?$ /users.php?;
+  rewrite ^/users/page/([0-9-]+)/?$ /users.php?page=$1?;
+}
+
+location /userdetails {
+  rewrite ^/userdetails/([0-9-]+)/?$ /details.php?id=$1?;
+}
+
+location /mydetails {
+  rewrite ^/mydetails/?$ /details\.php?;
+}
+
+location /trees {
+  rewrite ^/trees/my/?$ /list.php?pg=my;
+  rewrite ^/trees/my/page/([0-9-]+)/?$ /list.php?pg=my&page=$1?;
+  rewrite ^/trees/all/?$ /list.php?;
+  rewrite ^/trees/all/page/([0-9-]+)/?$ /list.php?page=$1?;
+}
+
+location /dashboard {
+  rewrite ^/dashboard/([A-Za-z0-9-]+)/id/([0-9-]+)/?$ /dashboard.php?pg=$1&id=$2;
+  rewrite ^/dashboard/([A-Za-z0-9-]+)/page/([0-9-]+)/?$ /dashboard.php?pg=$1&page=$2;
+  rewrite ^/dashboard/([A-Za-z0-9-]+)/?$ /dashboard.php?pg=$1;
+  rewrite ^/dashboard/?$ /dashboard.php?;
+}
